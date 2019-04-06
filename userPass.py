@@ -8,8 +8,12 @@ def extractUserPass(filename):
     passDict = {}
     with open(filename) as f:
         line = f.readline()
+        print(line)
         while line:
             try:
+                # print(line)
+                if '{' not in line:
+                    continue
                 obj = json.loads(line)
                 if 'username' in obj.keys():
                     user = obj['username']
@@ -30,6 +34,10 @@ def extractUserPass(filename):
                     else:
                         userPassDict[pair_key] = 1
             except KeyError:
+                line = f.readline()
+                continue
+            except:
+                line = f.readline()
                 continue
             line = f.readline()
     userPassDict = sorter(userPassDict)
@@ -68,4 +76,4 @@ def sorter(dict):
 
 
 if __name__ == "__main__":
-    extractUserPass('cowrie.json')
+    extractUserPass('./json/meta.json')
