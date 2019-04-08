@@ -8,7 +8,6 @@ def extractUserPass(filename):
     passDict = {}
     with open(filename) as f:
         line = f.readline()
-        print(line)
         while line:
             try:
                 # print(line)
@@ -76,4 +75,4 @@ def sorter(dict):
 
 
 if __name__ == "__main__":
-    extractUserPass('./json/meta.json')
+    extractUserPass('./json/meta.login.json')
