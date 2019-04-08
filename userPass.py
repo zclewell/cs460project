@@ -69,10 +69,6 @@ def extractUserPass(filename):
 def sorter(dict):
     return collections.OrderedDict(sorted(dict.items(), key= lambda t: t[1], reverse=True)).items()
 
-    # print(sorted_dict)
-
-# def output_helper(dict, )
-
 
 if __name__ == "__main__":
     extractUserPass('./json/meta.login.json')
